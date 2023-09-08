@@ -2,13 +2,22 @@
 module.exports = {
 	content: ['./src/**/*.{html,js,jsx}'],
 	theme: {
+
 		extend: {
-			fontFamily: {
-				num: ['Offside-Regular', 'ShareTechMono-Regular' ],
+			fontSize: {
+       
+
+      },
+      
+      fontFamily: {
+				num: ['Offside-Regular' ],
         title: ['Orbitron-VariableFont_wght'],
         primary: ['roboto'],
-        martian: ['MartianMono-VariableFont_wdth', 'Orbitron-VariableFont_wght']
 			},
+      colors: {
+        'offprim': '#252626',
+      },
+
 		},
 	},
 	plugins: [],

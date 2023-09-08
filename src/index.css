@@ -6,20 +6,12 @@
 	font-family: 'Offside-Regular';
 	src: url('./fonts/Offside-Regular.ttf') format('truetype');
 }
-@font-face {
-	font-family: 'ShareTechMono-Regular';
-	src: url('./fonts/ShareTechMono-Regular.ttf') format('truetype');
-}
 
 @font-face {
 	font-family: 'Orbitron-VariableFont_wght';
 	src: url('./fonts/Orbitron-VariableFont_wght.ttf') format('truetype');
 }
 
-@font-face {
-	font-family: 'MartianMono-VariableFont_wdth';
-	src: url('./fonts/MartianMono-VariableFont_wdth.ttf') format('truetype');
-}
 :root {
 	
 	line-height: 1.5;

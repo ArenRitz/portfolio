@@ -12,24 +12,28 @@ const Nav = () => {
 				<GiHamburgerMenu className=' text-[6vw] text-green-400' />
 			</button>
 
-			<div className='hidden  lg:flex gap-8 text-[1.2vw]   mr-[2vw]'>
-				<a className='z-20 hover:underline text-green-400  border-green-400'>
-					<span className='font-num '>01.&nbsp;</span>
+			<div className='hidden lg:flex gap-8 text-[1.1vw] xl:text-[17px]  mr-[2vw]'>
+				<a className='z-20 relative group'>
+					<span className='font-num text-green-400'>01.&nbsp;</span>
 					<span className='font-title text-white'>ABOUT</span>
-				</a>
+                <div className='h-[1px] absolute bottom-0 left-0 right-0 mx-auto w-0 group-hover:w-full bg-green-400 transition-all'/>
+                </a>
 
-				<a className='z-20 hover:underline text-green-400  border-green-400'>
-					<span className='font-num'>02.&nbsp;</span>
+				<a className='z-20 relative group'>
+					<span className='font-num text-green-400'>02.&nbsp;</span>
 					<span className='font-title text-white'>EXPERIENCE</span>
+                    <div className='h-[1px] absolute bottom-0 left-0 right-0 mx-auto w-0 group-hover:w-full bg-green-400 transition-all'/>
 				</a>
-				<a className='z-20 hover:underline text-green-400  border-green-400'>
-					<span className='font-num'>03.&nbsp;</span>
+				<a className='z-20 relative group'>
+					<span className='font-num text-green-400'>03.&nbsp;</span>
 					<span className='font-title text-white'>WORK</span>
+                    <div className='h-[1px] absolute bottom-0 left-0 right-0 mx-auto w-0 group-hover:w-full bg-green-400 transition-all'/>
 				</a>
 
-				<a className='z-20 hover:underline text-green-400  border-green-400'>
-					<span className='font-num'>04.&nbsp;</span>
+				<a className='z-20 relative group'>
+					<span className='font-num text-green-400'>04.&nbsp;</span>
 					<span className='font-title text-white'>CONTACT</span>
+                    <div className='h-[1px] absolute bottom-0 left-0 right-0 mx-auto w-0 group-hover:w-full bg-green-400 transition-all'/>
 				</a>
 			</div>
 		</nav>
