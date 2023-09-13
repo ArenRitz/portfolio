@@ -1,15 +1,22 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { BsArrowDown } from 'react-icons/bs';
 import {
 	motion,
 	useAnimation,
 	useScroll,
 	useMotionValueEvent,
+	useInView
 } from 'framer-motion';
+import cx from 'classnames';
+
+
 
 const Hero = () => {
 	const controls = useAnimation();
 	const { scrollY } = useScroll();
+	const ref = useRef(null);
+	const isInView = useInView(ref, { once: true });
+
 
 	const handleClick = () => {
 		console.log(scrollY);
@@ -40,12 +47,28 @@ const Hero = () => {
 		};
 	}, [scrollY, controls]);
 
+
+	const heroContainerInView = cx({
+		'opacity-1': isInView,
+		'opacity-0': !isInView,
+	});
+
+
+	const heroInView = cx({
+		'opacity-1': isInView,
+		'opacity-0': !isInView,
+		'-translate-x-0': isInView,
+		'-translate-x-[600px]': !isInView,
+	});
+
+
+
 	return (
-		<div className='h-full w-full flex relative '>
-			<div className='h-fit m-auto lg:m-auto w-full lg:w-[50%] lg:max-w-[759px] border-l-2 border-green-400'>
-				<div className='ml-4 lg:ml-12 py-4 flex flex-col gap-6'>
+		<div className='h-full w-full flex relative ' ref={ref}>
+			<div className={'h-fit m-auto sm:m-auto w-full sm:w-[80%] lg:w-[50%] sm:max-w-[759px] border-l-2 border-green-400 overflow-hidden transition-all duration-1000 ' + heroContainerInView}>
+				<div className={'ml-4 sm:ml-12 py-4 flex flex-col gap-6 transition-all duration-1000 ' + heroInView}>
 					<svg
-						className='wave w-[20vw] lg:w-[5vw]'
+						className='wave w-[20vw] sm:w-[10vw] lg:w-[5vw]'
 						version='1.1'
 						viewBox='0 0 1200 1200'
 						xmlns='http://www.w3.org/2000/svg'
@@ -55,7 +78,7 @@ const Hero = () => {
 							fill='#4ade7f'
 						/>
 					</svg>
-					<div className='flex text-[6vw] lg:text-[2.5vw] xl:text-[39px] font-title font-extrabold'>
+					<div className='flex text-[6vw] sm:text-[39px] font-title font-extrabold'>
 						<span
 							before="Hello, I'm "
 							className="text-green-400 leading-none after:content-['.'] after:text-white before:content-[attr(before)] before:text-white"
@@ -64,11 +87,11 @@ const Hero = () => {
 						</span>
 					</div>
 
-					<div className='w-fit text-white text-[5vw] lg:text-[1.5vw] xl:text-[24px] font-bold font-title leading-none whitespace-pre'>
+					<div className='w-fit text-white text-[5vw] sm:text-[24px] font-bold font-title leading-none whitespace-pre'>
 						{'>>'} Full Stack Developer
 					</div>
 
-					<p className='font-primary text-white text-[4vw] lg:text-[1vw] xl:text-[16px]'>
+					<p className='font-primary text-white text-[4vw] sm:text-[16px]'>
 						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
 						eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
 						ad minim veniam, quis nostrud exercitation ullamco laboris
@@ -76,15 +99,15 @@ const Hero = () => {
 
 					<button
 						onClick={() => handleClick()}
-						className='transition-all duration-200 font-primary w-fit py-2 px-6 mt-6 lg:mt-8 border-[1px] lg:border-2 text-[4vw] lg:text-[1vw] xl:text-[16px] rounded-full border-green-400 text-green-400 hover:bg-green-400 hover:text-black'
+						className='transition-all duration-200 font-primary w-fit py-2 px-6 mt-6 sm:mt-8 border-[1px] sm:border-2 text-[4vw] sm:text-[16px] rounded-full border-green-400 text-green-400 hover:bg-green-400 hover:text-black'
 					>
 						GET IN TOUCH
 					</button>
 				</div>
 			</div>
 			<motion.div initial={{ opacity: 1 }} animate={controls}>
-				<button className='transition-all duration-200 absolute bottom-2 lg:bottom-8 m-auto left-0 right-0 w-fit pb-2 pt-4 lg:pt-6 border-[1px] lg:border-2 rounded-full border-green-400 text-green-400 hover:bg-green-400 hover:text-black'>
-					<BsArrowDown className=' animate-bounce text-[4vw] lg:text-4xl' />
+				<button className='transition-all duration-200 absolute bottom-2 sm:bottom-8 m-auto left-0 right-0 w-fit pb-2 pt-4 sm:pt-6 border-[1px] sm:border-2 rounded-full border-green-400 text-green-400 hover:bg-green-400 hover:text-black'>
+					<BsArrowDown className=' animate-bounce text-[4vw] sm:text-4xl' />
 				</button>
 			</motion.div>
 		</div>

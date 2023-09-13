@@ -15,7 +15,7 @@ module.exports = {
         primary: ['roboto'],
 			},
       colors: {
-        'offprim': '#252626',
+        'offprim': '#202121',
       },
 
 		},
