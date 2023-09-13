@@ -54,7 +54,7 @@ const Contact = () => {
 				(result) => {
 					form.reset
 					
-					console.log(result.text);
+					
 					setEmail('')
 					setName('')
 					setMessage('')

@@ -19,7 +19,7 @@ const Hero = () => {
 
 
 	const handleClick = () => {
-		console.log(scrollY);
+	
 		if (scrollY.current > 100) {
 			controls.start({
 				opacity: 0,

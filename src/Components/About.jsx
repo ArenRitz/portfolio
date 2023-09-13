@@ -79,21 +79,21 @@ const About = () => {
 									bounce: 0.5,
 								}}
 								viewport={{ once: true }}
-								className='w-[50%] flex flex-col items-center  '
+								className=' flex flex-col  '
 							>
-								<li className='w-28 before:content-["•"] before:text-green-400'>
+								<li before={'• '} className='w-28 before:content-[attr(before)] before:text-green-400'>
 									HTML
 								</li>
-								<li className='w-28 before:content-["•"] before:text-green-400'>
+								<li before={'• '} className='w-28 before:content-[attr(before)] before:text-green-400'>
 									CSS
 								</li>
-								<li className='w-28 before:content-["•"] before:text-green-400'>
+								<li before={'• '} className='w-28 before:content-[attr(before)] before:text-green-400'>
 									JavaScript
 								</li>
-								<li className='w-28 before:content-["•"] before:text-green-400'>
+								<li before={'• '} className='w-28 before:content-[attr(before)] before:text-green-400'>
 									SQL
 								</li>
-								<li className='w-28 before:content-["•"] before:text-green-400'>
+								<li before={'• '} className='w-28 before:content-[attr(before)] before:text-green-400'>
 									React
 								</li>
 							</motion.ul>
@@ -109,19 +109,19 @@ const About = () => {
 								viewport={{ once: true }}
 								className='w-[50%]  flex flex-col items-center list-none'
 							>
-								<li className='w-28 before:content-["•"] before:text-green-400'>
+								<li before={'• '} className='w-28 before:content-[attr(before)] before:text-green-400'>
 									Storybook
 								</li>
-								<li className='w-28 before:content-["•"] before:text-green-400'>
+								<li before={'• '} className='w-28 before:content-[attr(before)] before:text-green-400'>
 									TailwindCSS
 								</li>
-								<li className='w-28 before:content-["•"] before:text-green-400'>
+								<li before={'• '} className='w-28 before:content-[attr(before)] before:text-green-400'>
 									Material UI
 								</li>
-								<li className='w-28 before:content-["•"] before:text-green-400'>
+								<li before={'• '} className='w-28 before:content-[attr(before)] before:text-green-400'>
 									Figma
 								</li>
-								<li className='w-28 before:content-["•"] before:text-green-400'>
+								<li before={'• '} className='w-28 before:content-[attr(before)] before:text-green-400'>
 									Framer
 								</li>
 							</motion.div>

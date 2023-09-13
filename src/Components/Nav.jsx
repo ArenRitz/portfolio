@@ -22,7 +22,11 @@ const Nav = ({ aboutView, projectsView, workView, contactView }) => {
 	const navControls = useAnimation();
 	const navButton = useRef(null);
 
+	const [width, setWidth] = useState(window.innerWidth);
+
 	const [menuOpen, setMenuOpen] = useState(false);
+	const [scroll, setScroll] = useState(0);
+	const [navOpen, setNavOpen] = useState(true);
 
 	const handleMenuOpen = () => {
 		navButton.current.focus();
@@ -40,38 +44,56 @@ const Nav = ({ aboutView, projectsView, workView, contactView }) => {
 	});
 
 	useEffect(() => {
-		const handleNavScroll = () => {
-			if (window.innerWidth > 1024) {
-				if (scrollY.current > 10) {
-					navControls.start({ background: '#00000' });
-				}
-
-				if (scrollY.getPrevious() > scrollY.current) {
-					if (scrollY.current === 0) {
-						navControls.start({ background: '#181818' });
-					} else {
-						navControls.start({ background: '#00000' });
-					}
-					navControls.start('inView');
-				} else if (
-					scrollY.current > 100 &&
-					scrollY.getPrevious() < scrollY.current
-				) {
-					navControls.start({ background: '#00000' });
-					navControls.start('hidden');
-				}
-			} else {
+		const handleResize = () => {
+			setWidth(window.innerWidth);
+			if (width < 1024) {
+				console.log('small');
 				navControls.start('inView');
 				navControls.start({ background: '#00000' });
+			} else {
+				if (scroll === 0) {
+					navControls.start({ background: '#181818' });
+				}
 			}
 		};
 
+		const handleNavScroll = () => {
+			setScroll(scrollY.current);
+
+			if (scrollY.current > 10) {
+				navControls.start({ background: '#00000' });
+			}
+
+			if (scrollY.getPrevious() > scrollY.current) {
+				if (scrollY.current === 0) {
+					if (width >= 1024) {
+						navControls.start({ background: '#181818' });
+					}
+				} else {
+					navControls.start({ background: '#00000' });
+				}
+				navControls.start('inView');
+				console.log('showing');
+			} else if (
+				scrollY.current > 100 &&
+				scrollY.getPrevious() < scrollY.current
+			) {
+				if (width >= 1024) {
+					console.log('hiding ' + scroll);
+					navControls.start({ background: '#00000' });
+					navControls.start('hidden');
+				}
+			}
+		};
+
+		window.addEventListener('resize', handleResize);
 		const unsubY = scrollY.on('change', handleNavScroll);
 
 		return () => {
 			unsubY();
+			window.removeEventListener('resize', handleResize);
 		};
-	}, [scrollY]);
+	}, [scrollY, width, scroll]);
 
 	return (
 		<motion.nav
@@ -81,7 +103,7 @@ const Nav = ({ aboutView, projectsView, workView, contactView }) => {
 			ref={ref}
 			className=' z-50 h-16 w-full fixed flex justify-between items-center bg-black lg:bg-[#181818] '
 		>
-			<p 
+			<p
 				className={
 					'cursor-pointer  text-[30px] lg:text-[2vw] font-primary leading-none text-green-400 ml-[2vw] items-center duration-[1000ms] transition-all ' +
 					navInView

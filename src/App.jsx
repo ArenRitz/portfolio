@@ -80,15 +80,15 @@ function App() {
 
 				<Contact />
 			</div>
-			<div className='w-full bg-black flex flex-col justify-center gap-2 items-center h-20'>
+			<div className='w-full flex flex-col justify-center gap-2 items-center h-20 pb-4'>
 
 				<p className=''>Designed and Built by <span className='text-green-400'>Aren Dolbakian </span></p>
 				<div className='flex gap-4 '>
 					<a href='https://www.github.com/ArenRitz' target='_'  >
-						<AiFillGithub className='text-2xl' />
+						<AiFillGithub className=' text-2xl hover:text-green-400' />
 					</a>
-					<a href='https://www.linkedin.com/in/arendolbakian' target='_'>
-						<AiFillLinkedin className='text-2xl' />
+					<a href='https://www.linkedin.com/in/arendolbakian' target='_' className=''>
+						<AiFillLinkedin className=' text-2xl hover:text-green-400' />
 					</a>
 				</div>
 			</div>

@@ -20,8 +20,7 @@ const HeroV2 = ({contactView}) => {
 
 	useEffect(() => {
 		const handleScroll = () => {
-            console.log('current' + scrollY.current)
-            console.log('last' + scrollY.getPrevious())
+    
 			if (scrollY.current > 100) {
 				controls.start({
 					opacity: 0,

@@ -16,8 +16,16 @@ const ProjectItem = ({ projectInfo }) => {
 	return (
 		<>
 			<div className='w-90% sm:max-w-[420px] sm:max-h-[488px] bg-offprim  rounded-3xl flex flex-col  group relative transition-all border-[1px] border-transparent hover:border-[1px] hover:border-green-400'>
-
+				{projectInfo.hosted ? (
+				<a href={projectInfo.hosted} target='_blank'> 	
 				<img src={projectInfo.img} alt='' className='transition-all grayscale group-hover:grayscale-0 w-full h-[50%] rounded-t-3xl' />
+				</a>
+				) : (
+					<a href={projectInfo.github} target='_blank'>
+					<img src={projectInfo.img} alt='' className='transition-all grayscale group-hover:grayscale-0 w-full h-[50%] rounded-t-3xl' />
+					</a>
+				)
+}
 				<div className='flex flex-col py-4 px-4 gap-4 justify-between h-full'>
 				<p before={'>> '} className='font-title text-[5vw] sm:text-[24px] leading-none text-green-400 before:content-[attr(before)] before:text-white font-semibold'>
 					{projectInfo.name}
